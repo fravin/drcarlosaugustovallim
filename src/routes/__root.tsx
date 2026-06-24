@@ -77,14 +77,16 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Dr. Carlos Augusto Vallim Rosa | Ortopedista Especialista em Joelho – Rio de Janeiro" },
+      { name: "description", content: "Dr. Carlos Augusto Vallim Rosa – Ortopedista e Traumatologista com mais de 35 anos de experiência. Especialista em Cirurgia do Joelho, Artroscopia e Traumatologia Esportiva. Atendimento na Pavuna, RJ." },
+      { name: "author", content: "Dr. Carlos Augusto Vallim Rosa" },
+      { property: "og:title", content: "Dr. Carlos Augusto Vallim Rosa | Ortopedista Especialista em Joelho – Rio de Janeiro" },
+      { property: "og:description", content: "Ortopedista e Traumatologista com mais de 35 anos de experiência. Especialista em Cirurgia do Joelho, Artroscopia e Traumatologia Esportiva. Atendimento na Pavuna, RJ." },
       { property: "og:type", content: "website" },
+      { property: "og:locale", content: "pt_BR" },
       { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "Dr. Carlos Augusto Vallim Rosa | Ortopedista Especialista em Joelho – Rio de Janeiro" },
+      { name: "twitter:description", content: "Ortopedista e Traumatologista com mais de 35 anos de experiência. Especialista em Cirurgia do Joelho, Artroscopia e Traumatologia Esportiva. Atendimento na Pavuna, RJ." },
     ],
     links: [
       {
@@ -101,7 +103,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="pt-BR">
       <head>
         <HeadContent />
       </head>
