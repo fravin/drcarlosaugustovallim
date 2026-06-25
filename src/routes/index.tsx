@@ -48,7 +48,10 @@ const landingScript = `
   document.querySelectorAll('.reveal').forEach(function (el) { observer.observe(el); });
 `;
 
-const SITE_URL = "https://my-sweet-site-publish.lovable.app";
+const SITE_URL = "https://drcarlosaugustovallim.lovable.app";
+const OG_IMAGE = `${SITE_URL}/og-dr-carlos-vallim.jpg`;
+const OG_IMAGE_ALT =
+  "Dr. Carlos Augusto Vallim Rosa — Ortopedista Especialista em Joelho, CRM-RJ 47514-1, Rio de Janeiro";
 const PAGE_TITLE = "Dr. Carlos Vallim — Ortopedista do Joelho | RJ";
 const PAGE_DESC =
   "Ortopedista e traumatologista com 35+ anos de experiência. Especialista em cirurgia do joelho e artroscopia. Atendimento na Pavuna, Rio de Janeiro.";
@@ -127,9 +130,17 @@ export const Route = createFileRoute("/")({
       { property: "og:url", content: SITE_URL + "/" },
       { property: "og:type", content: "website" },
       { property: "og:locale", content: "pt_BR" },
-      { name: "twitter:card", content: "summary" },
+      { property: "og:image", content: OG_IMAGE },
+      { property: "og:image:secure_url", content: OG_IMAGE },
+      { property: "og:image:type", content: "image/jpeg" },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      { property: "og:image:alt", content: OG_IMAGE_ALT },
+      { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: PAGE_TITLE },
       { name: "twitter:description", content: PAGE_DESC },
+      { name: "twitter:image", content: OG_IMAGE },
+      { name: "twitter:image:alt", content: OG_IMAGE_ALT },
     ],
     links: [
       { rel: "canonical", href: SITE_URL + "/" },
