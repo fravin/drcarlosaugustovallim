@@ -48,7 +48,10 @@ const landingScript = `
   document.querySelectorAll('.reveal').forEach(function (el) { observer.observe(el); });
 `;
 
-const SITE_URL = "https://my-sweet-site-publish.lovable.app";
+const SITE_URL = "https://drcarlosaugustovallim.lovable.app";
+const OG_IMAGE = `${SITE_URL}/og-dr-carlos-vallim.jpg`;
+const OG_IMAGE_ALT =
+  "Dr. Carlos Augusto Vallim Rosa — Ortopedista Especialista em Joelho, CRM-RJ 47514-1, Rio de Janeiro";
 const PAGE_TITLE = "Dr. Carlos Vallim — Ortopedista do Joelho | RJ";
 const PAGE_DESC =
   "Ortopedista e traumatologista com 35+ anos de experiência. Especialista em cirurgia do joelho e artroscopia. Atendimento na Pavuna, Rio de Janeiro.";
