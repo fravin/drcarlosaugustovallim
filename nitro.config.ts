@@ -1,5 +1,5 @@
 import { defineNitroConfig } from "nitropack/config";
-tsexport default defineNitroConfig({
+export default defineNitroConfig({
   preset: "node-server",
   crawlLinks: true,
   routes: ["/sitemap.xml"],
