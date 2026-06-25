@@ -77,16 +77,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Dr. Carlos Augusto Vallim Rosa | Ortopedista Especialista em Joelho – Rio de Janeiro" },
-      { name: "description", content: "Dr. Carlos Augusto Vallim Rosa – Ortopedista e Traumatologista com mais de 35 anos de experiência. Especialista em Cirurgia do Joelho, Artroscopia e Traumatologia Esportiva. Atendimento na Pavuna, RJ." },
       { name: "author", content: "Dr. Carlos Augusto Vallim Rosa" },
-      { property: "og:title", content: "Dr. Carlos Augusto Vallim Rosa | Ortopedista Especialista em Joelho – Rio de Janeiro" },
-      { property: "og:description", content: "Ortopedista e Traumatologista com mais de 35 anos de experiência. Especialista em Cirurgia do Joelho, Artroscopia e Traumatologia Esportiva. Atendimento na Pavuna, RJ." },
       { property: "og:type", content: "website" },
+      { property: "og:site_name", content: "Dr. Carlos Vallim — Ortopedista" },
       { property: "og:locale", content: "pt_BR" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:title", content: "Dr. Carlos Augusto Vallim Rosa | Ortopedista Especialista em Joelho – Rio de Janeiro" },
-      { name: "twitter:description", content: "Ortopedista e Traumatologista com mais de 35 anos de experiência. Especialista em Cirurgia do Joelho, Artroscopia e Traumatologia Esportiva. Atendimento na Pavuna, RJ." },
     ],
     links: [
       {

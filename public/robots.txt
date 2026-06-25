@@ -1,2 +1,4 @@
 User-agent: *
 Allow: /
+
+Sitemap: https://my-sweet-site-publish.lovable.app/sitemap.xml
