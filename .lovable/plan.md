@@ -1,44 +1,43 @@
-## Problema
+## Objetivo
+Criar uma rotina automatizada que valide as meta tags Open Graph e a imagem de compartilhamento (`og:image`) do site, simulando o que o crawler do WhatsApp faz ao gerar o preview de um link.
 
-Quando o link é colado no WhatsApp, Telegram, Instagram, LinkedIn, e-mail etc., o preview mostra só título e descrição — sem foto. Motivo: a página não tem nenhuma tag `og:image` / `twitter:image`. A foto do médico hoje está embutida em base64 dentro do HTML do hero, então os crawlers (WhatsApp, Facebook) não conseguem descobri-la nem usá-la como preview.
+## Como o WhatsApp lê um link
+O WhatsApp envia um `GET` com `User-Agent: WhatsApp/2.x` ao HTML da página e lê apenas as tags dentro do `<head>`:
+- `og:title`, `og:description`, `og:url`, `og:image` (precisa ser URL absoluta HTTPS, acessível sem login)
+- A imagem precisa ter `Content-Type: image/jpeg|png`, tamanho < 300 KB recomendado, dimensões >= 300×200 (ideal 1200×630).
 
-Além disso, o domínio dentro de `og:url` / `canonical` ainda aponta para `my-sweet-site-publish.lovable.app`, mas a URL publicada real é `drcarlosaugustovallim.lovable.app` — isso atrapalha o cache dos previews.
+## O que a rotina vai verificar
+Script Node em `scripts/check-og.mjs` que recebe uma URL (default `https://drcarlosaugustovallim.lovable.app`) e:
 
-## Plano
+1. Faz `fetch` do HTML com `User-Agent` do WhatsApp.
+2. Extrai com regex/`cheerio` todas as meta tags `og:*` e `twitter:*`, mais `<title>`, `<meta name="description">` e `<link rel="canonical">`.
+3. Valida obrigatórios: `og:title`, `og:description`, `og:url`, `og:image`, `og:image:width`, `og:image:height`, `twitter:card=summary_large_image`, `twitter:image`.
+4. Garante que `og:url` e `canonical` apontam para o domínio canônico (`drcarlosaugustovallim.lovable.app`).
+5. Faz `HEAD` (e `GET` parcial fallback) na URL do `og:image`:
+   - status 200
+   - `content-type` começa com `image/`
+   - `content-length` <= 5 MB (limite WhatsApp) e idealmente <= 300 KB
+6. Baixa a imagem e confere dimensões reais via cabeçalho JPEG/PNG (sem dependência nativa — leitura de bytes).
+7. Imprime um relatório `PASS/FAIL` por checagem e sai com código != 0 em caso de falha (para uso futuro em CI).
 
-1. **Gerar uma imagem social dedicada (1200×630, JPG)** — formato exigido por WhatsApp/Facebook/LinkedIn/X para preview "grande". Conteúdo:
-   - Foto do Dr. Carlos à esquerda (recortada do hero atual).
-   - À direita, em fundo na paleta do site: nome, "Ortopedista · Especialista em Joelho", CRM-RJ 47514-1 e "Rio de Janeiro".
-   - Salva em `public/og-dr-carlos-vallim.jpg` (servida em `/og-dr-carlos-vallim.jpg`, URL absoluta).
+## Script `package.json`
+Adicionar:
+```
+"check:og": "node scripts/check-og.mjs"
+```
+Uso: `bun run check:og` (verifica produção) ou `bun run check:og http://localhost:8080` (verifica preview local).
 
-2. **Adicionar tags Open Graph e Twitter Card em `src/routes/index.tsx`:**
-   - `og:image`, `og:image:secure_url` → URL absoluta do JPG
-   - `og:image:type` = `image/jpeg`
-   - `og:image:width` = 1200, `og:image:height` = 630
-   - `og:image:alt` = "Dr. Carlos Augusto Vallim Rosa — Ortopedista Especialista em Joelho"
-   - Trocar `twitter:card` de `summary` para `summary_large_image` e adicionar `twitter:image` + `twitter:image:alt`.
+## Execução e validação manual complementar
+Após rodar o script, instruções no output apontam para os debuggers oficiais para confirmação visual:
+- Facebook Sharing Debugger (mesmo parser do WhatsApp Business): https://developers.facebook.com/tools/debug/
+- Telegram `@WebpageBot` (similar)
+- WhatsApp: enviar `https://drcarlosaugustovallim.lovable.app/?v=N` para invalidar cache
 
-3. **Corrigir o domínio base** em `src/routes/index.tsx` e `src/routes/sitemap[.]xml.ts`:
-   - `SITE_URL` / `BASE_URL` passa a ser `https://drcarlosaugustovallim.lovable.app` (URL publicada real).
-   - Atualizar `canonical`, `og:url`, JSON-LD `Physician.url` e `Sitemap:` em `public/robots.txt` para o mesmo domínio.
+## Entregáveis
+1. `scripts/check-og.mjs` — validador (sem dependências novas; usa `fetch` nativo).
+2. Entrada `check:og` em `package.json`.
+3. Execução do script contra a URL publicada após o build e cole do relatório na resposta.
 
-4. **Republicar** para o preview novo entrar no ar.
-
-5. **Forçar o WhatsApp/Facebook a re-baixar o preview** (eles cacheiam por dias):
-   - WhatsApp: o cache do preview é por URL — passar a URL com um sufixo único uma vez (ex.: `?v=2`) força refetch. Ou aguardar ~7 dias.
-   - Facebook/Instagram: usar o [Sharing Debugger](https://developers.facebook.com/tools/debug/) → "Scrape Again".
-   - LinkedIn: [Post Inspector](https://www.linkedin.com/post-inspector/) → "Inspect".
-   - Telegram: enviar para `@WebpageBot` o link para limpar o cache.
-
-## Detalhes técnicos
-
-- Vou extrair o base64 da `<img class="hero-photo">` em `src/landing-body.html`, decodificar para um JPG, e usar o ImageMagick (via `nix run nixpkgs#imagemagick`) para compor o card 1200×630 com a foto + texto na paleta atual (`--primary` do projeto). Se o resultado não ficar bom, gero via `imagegen` modelo `premium` para garantir tipografia legível.
-- Mantenho a `<img>` inline em base64 no hero (não é o gargalo aqui) — não precisa duplicar o asset.
-- O `og:image` precisa ser **URL absoluta com https** — relativos quebram no WhatsApp.
-
-## Arquivos alterados
-
-- `public/og-dr-carlos-vallim.jpg` (novo)
-- `src/routes/index.tsx` (meta tags + SITE_URL)
-- `src/routes/sitemap[.]xml.ts` (BASE_URL)
-- `public/robots.txt` (linha Sitemap)
+## Fora de escopo
+- Não envia mensagens reais ao WhatsApp (API requer Business + número verificado).
+- Não altera meta tags existentes — apenas valida.
