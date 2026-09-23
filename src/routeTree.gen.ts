@@ -11,6 +11,12 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as TratamentosViscossuplementacaoJoelhoRouteImport } from './routes/tratamentos.viscossuplementacao-joelho'
+import { Route as TratamentosTratamentoConservadorJoelhoRouteImport } from './routes/tratamentos.tratamento-conservador-joelho'
+import { Route as TratamentosReabilitacaoPosOperatoriaJoelhoRouteImport } from './routes/tratamentos.reabilitacao-pos-operatoria-joelho'
+import { Route as TratamentosProteseJoelhoRouteImport } from './routes/tratamentos.protese-joelho'
+import { Route as TratamentosInfiltracaoJoelhoRouteImport } from './routes/tratamentos.infiltracao-joelho'
+import { Route as TratamentosArtroscopiaJoelhoRouteImport } from './routes/tratamentos.artroscopia-joelho'
 
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
@@ -22,31 +28,116 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TratamentosViscossuplementacaoJoelhoRoute =
+  TratamentosViscossuplementacaoJoelhoRouteImport.update({
+    id: '/tratamentos/viscossuplementacao-joelho',
+    path: '/tratamentos/viscossuplementacao-joelho',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const TratamentosTratamentoConservadorJoelhoRoute =
+  TratamentosTratamentoConservadorJoelhoRouteImport.update({
+    id: '/tratamentos/tratamento-conservador-joelho',
+    path: '/tratamentos/tratamento-conservador-joelho',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const TratamentosReabilitacaoPosOperatoriaJoelhoRoute =
+  TratamentosReabilitacaoPosOperatoriaJoelhoRouteImport.update({
+    id: '/tratamentos/reabilitacao-pos-operatoria-joelho',
+    path: '/tratamentos/reabilitacao-pos-operatoria-joelho',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const TratamentosProteseJoelhoRoute =
+  TratamentosProteseJoelhoRouteImport.update({
+    id: '/tratamentos/protese-joelho',
+    path: '/tratamentos/protese-joelho',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const TratamentosInfiltracaoJoelhoRoute =
+  TratamentosInfiltracaoJoelhoRouteImport.update({
+    id: '/tratamentos/infiltracao-joelho',
+    path: '/tratamentos/infiltracao-joelho',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const TratamentosArtroscopiaJoelhoRoute =
+  TratamentosArtroscopiaJoelhoRouteImport.update({
+    id: '/tratamentos/artroscopia-joelho',
+    path: '/tratamentos/artroscopia-joelho',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/tratamentos/artroscopia-joelho': typeof TratamentosArtroscopiaJoelhoRoute
+  '/tratamentos/infiltracao-joelho': typeof TratamentosInfiltracaoJoelhoRoute
+  '/tratamentos/protese-joelho': typeof TratamentosProteseJoelhoRoute
+  '/tratamentos/reabilitacao-pos-operatoria-joelho': typeof TratamentosReabilitacaoPosOperatoriaJoelhoRoute
+  '/tratamentos/tratamento-conservador-joelho': typeof TratamentosTratamentoConservadorJoelhoRoute
+  '/tratamentos/viscossuplementacao-joelho': typeof TratamentosViscossuplementacaoJoelhoRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/tratamentos/artroscopia-joelho': typeof TratamentosArtroscopiaJoelhoRoute
+  '/tratamentos/infiltracao-joelho': typeof TratamentosInfiltracaoJoelhoRoute
+  '/tratamentos/protese-joelho': typeof TratamentosProteseJoelhoRoute
+  '/tratamentos/reabilitacao-pos-operatoria-joelho': typeof TratamentosReabilitacaoPosOperatoriaJoelhoRoute
+  '/tratamentos/tratamento-conservador-joelho': typeof TratamentosTratamentoConservadorJoelhoRoute
+  '/tratamentos/viscossuplementacao-joelho': typeof TratamentosViscossuplementacaoJoelhoRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/tratamentos/artroscopia-joelho': typeof TratamentosArtroscopiaJoelhoRoute
+  '/tratamentos/infiltracao-joelho': typeof TratamentosInfiltracaoJoelhoRoute
+  '/tratamentos/protese-joelho': typeof TratamentosProteseJoelhoRoute
+  '/tratamentos/reabilitacao-pos-operatoria-joelho': typeof TratamentosReabilitacaoPosOperatoriaJoelhoRoute
+  '/tratamentos/tratamento-conservador-joelho': typeof TratamentosTratamentoConservadorJoelhoRoute
+  '/tratamentos/viscossuplementacao-joelho': typeof TratamentosViscossuplementacaoJoelhoRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/sitemap.xml'
+  fullPaths:
+    | '/'
+    | '/sitemap.xml'
+    | '/tratamentos/artroscopia-joelho'
+    | '/tratamentos/infiltracao-joelho'
+    | '/tratamentos/protese-joelho'
+    | '/tratamentos/reabilitacao-pos-operatoria-joelho'
+    | '/tratamentos/tratamento-conservador-joelho'
+    | '/tratamentos/viscossuplementacao-joelho'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/sitemap.xml'
-  id: '__root__' | '/' | '/sitemap.xml'
+  to:
+    | '/'
+    | '/sitemap.xml'
+    | '/tratamentos/artroscopia-joelho'
+    | '/tratamentos/infiltracao-joelho'
+    | '/tratamentos/protese-joelho'
+    | '/tratamentos/reabilitacao-pos-operatoria-joelho'
+    | '/tratamentos/tratamento-conservador-joelho'
+    | '/tratamentos/viscossuplementacao-joelho'
+  id:
+    | '__root__'
+    | '/'
+    | '/sitemap.xml'
+    | '/tratamentos/artroscopia-joelho'
+    | '/tratamentos/infiltracao-joelho'
+    | '/tratamentos/protese-joelho'
+    | '/tratamentos/reabilitacao-pos-operatoria-joelho'
+    | '/tratamentos/tratamento-conservador-joelho'
+    | '/tratamentos/viscossuplementacao-joelho'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  TratamentosArtroscopiaJoelhoRoute: typeof TratamentosArtroscopiaJoelhoRoute
+  TratamentosInfiltracaoJoelhoRoute: typeof TratamentosInfiltracaoJoelhoRoute
+  TratamentosProteseJoelhoRoute: typeof TratamentosProteseJoelhoRoute
+  TratamentosReabilitacaoPosOperatoriaJoelhoRoute: typeof TratamentosReabilitacaoPosOperatoriaJoelhoRoute
+  TratamentosTratamentoConservadorJoelhoRoute: typeof TratamentosTratamentoConservadorJoelhoRoute
+  TratamentosViscossuplementacaoJoelhoRoute: typeof TratamentosViscossuplementacaoJoelhoRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -65,12 +156,63 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/tratamentos/viscossuplementacao-joelho': {
+      id: '/tratamentos/viscossuplementacao-joelho'
+      path: '/tratamentos/viscossuplementacao-joelho'
+      fullPath: '/tratamentos/viscossuplementacao-joelho'
+      preLoaderRoute: typeof TratamentosViscossuplementacaoJoelhoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tratamentos/tratamento-conservador-joelho': {
+      id: '/tratamentos/tratamento-conservador-joelho'
+      path: '/tratamentos/tratamento-conservador-joelho'
+      fullPath: '/tratamentos/tratamento-conservador-joelho'
+      preLoaderRoute: typeof TratamentosTratamentoConservadorJoelhoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tratamentos/reabilitacao-pos-operatoria-joelho': {
+      id: '/tratamentos/reabilitacao-pos-operatoria-joelho'
+      path: '/tratamentos/reabilitacao-pos-operatoria-joelho'
+      fullPath: '/tratamentos/reabilitacao-pos-operatoria-joelho'
+      preLoaderRoute: typeof TratamentosReabilitacaoPosOperatoriaJoelhoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tratamentos/protese-joelho': {
+      id: '/tratamentos/protese-joelho'
+      path: '/tratamentos/protese-joelho'
+      fullPath: '/tratamentos/protese-joelho'
+      preLoaderRoute: typeof TratamentosProteseJoelhoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tratamentos/infiltracao-joelho': {
+      id: '/tratamentos/infiltracao-joelho'
+      path: '/tratamentos/infiltracao-joelho'
+      fullPath: '/tratamentos/infiltracao-joelho'
+      preLoaderRoute: typeof TratamentosInfiltracaoJoelhoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tratamentos/artroscopia-joelho': {
+      id: '/tratamentos/artroscopia-joelho'
+      path: '/tratamentos/artroscopia-joelho'
+      fullPath: '/tratamentos/artroscopia-joelho'
+      preLoaderRoute: typeof TratamentosArtroscopiaJoelhoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  TratamentosArtroscopiaJoelhoRoute: TratamentosArtroscopiaJoelhoRoute,
+  TratamentosInfiltracaoJoelhoRoute: TratamentosInfiltracaoJoelhoRoute,
+  TratamentosProteseJoelhoRoute: TratamentosProteseJoelhoRoute,
+  TratamentosReabilitacaoPosOperatoriaJoelhoRoute:
+    TratamentosReabilitacaoPosOperatoriaJoelhoRoute,
+  TratamentosTratamentoConservadorJoelhoRoute:
+    TratamentosTratamentoConservadorJoelhoRoute,
+  TratamentosViscossuplementacaoJoelhoRoute:
+    TratamentosViscossuplementacaoJoelhoRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
