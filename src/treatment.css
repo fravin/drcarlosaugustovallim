@@ -1,0 +1,118 @@
+:root {
+  --doctor-navy: #0d1b2a;
+  --doctor-navy-mid: #162235;
+  --doctor-steel: #2d4a6e;
+  --doctor-gold: #b8924a;
+  --doctor-gold-light: #d4a96a;
+  --doctor-cream: #f8f4ee;
+  --doctor-paper: #ffffff;
+  --doctor-ink: #2c3a4a;
+  --doctor-muted: #5b6b7d;
+  --doctor-line: #d9d2c8;
+  --doctor-soft-gold: #f0e0c0;
+}
+
+.treatment-card-link { color: inherit; text-decoration: none; display: block; }
+.treatment-card-link:focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; }
+.treatment-grid-intro { color: var(--text-body); margin-top: 12px; max-width: 500px; margin-inline: auto; font-size: 16px; font-weight: 300; line-height: 1.7; }
+.treatment-centered-label { justify-content: center; }
+.treatment-learn-more { color: var(--gold); align-items: center; gap: 8px; margin-top: 20px; font-size: 12px; font-weight: 600; text-transform: uppercase; display: flex; }
+.treatment-learn-more svg { width: 15px; height: 15px; transition: transform .2s; }
+.treatment-card-link:hover .treatment-learn-more svg { transform: translateX(4px); }
+
+.treatment-page { background: var(--doctor-cream); color: var(--doctor-navy); min-height: 100vh; font-family: "Outfit", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+.treatment-page * { box-sizing: border-box; }
+.treatment-shell { width: min(1160px, calc(100% - 48px)); margin-inline: auto; }
+.treatment-nav { min-height: 74px; background: var(--doctor-navy); border-bottom: 1px solid color-mix(in srgb, var(--doctor-gold) 25%, transparent); display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 12px max(24px, calc((100vw - 1160px) / 2)); }
+.treatment-brand { color: var(--doctor-gold-light); font-family: "Libre Baskerville", Georgia, serif; font-size: 14px; line-height: 1.4; text-decoration: none; }
+.treatment-brand span { color: color-mix(in srgb, var(--doctor-paper) 64%, transparent); display: block; font-family: "Outfit", sans-serif; font-size: 9px; letter-spacing: .18em; text-transform: uppercase; }
+.treatment-nav-cta, .treatment-primary-button { background: var(--doctor-gold); color: var(--doctor-navy); border: 0; border-radius: 2px; min-height: 44px; font-weight: 650; box-shadow: none; }
+.treatment-nav-cta:hover, .treatment-primary-button:hover { background: var(--doctor-gold-light); color: var(--doctor-navy); }
+.treatment-hero { background: var(--doctor-navy); color: var(--doctor-paper); padding: 38px 0 76px; }
+.treatment-breadcrumb { display: flex; flex-wrap: wrap; gap: 9px; color: color-mix(in srgb, var(--doctor-paper) 62%, transparent); font-size: 12px; margin-bottom: 56px; }
+.treatment-breadcrumb a { color: var(--doctor-gold-light); text-decoration: none; }
+.treatment-hero-grid { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(300px, .72fr); gap: 84px; align-items: end; }
+.treatment-eyebrow, .treatment-card-kicker { color: var(--doctor-gold); font-size: 11px; font-weight: 650; letter-spacing: .2em; margin: 0 0 16px; text-transform: uppercase; }
+.treatment-hero h1 { color: var(--doctor-paper); font-family: "Libre Baskerville", Georgia, serif; font-size: clamp(38px, 5vw, 66px); font-weight: 400; line-height: 1.1; margin: 0 0 24px; max-width: 820px; }
+.treatment-summary { color: color-mix(in srgb, var(--doctor-paper) 84%, transparent); font-size: 19px; font-weight: 300; line-height: 1.7; margin: 0; max-width: 760px; }
+.treatment-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
+.treatment-outline-button { background: transparent; border-color: color-mix(in srgb, var(--doctor-paper) 35%, transparent); color: var(--doctor-paper); border-radius: 2px; min-height: 44px; }
+.treatment-outline-button:hover { background: color-mix(in srgb, var(--doctor-paper) 8%, transparent); color: var(--doctor-gold-light); }
+.treatment-overview { background: var(--doctor-navy-mid); border-left: 3px solid var(--doctor-gold); padding: 26px; }
+.treatment-overview > svg { color: var(--doctor-gold-light); width: 28px; height: 28px; margin-bottom: 14px; }
+.treatment-overview > p { color: color-mix(in srgb, var(--doctor-paper) 80%, transparent); font-size: 14px; line-height: 1.6; margin: 0 0 22px; }
+.treatment-overview dl { margin: 0; }
+.treatment-overview dl div { border-top: 1px solid color-mix(in srgb, var(--doctor-paper) 11%, transparent); display: flex; justify-content: space-between; gap: 14px; padding: 13px 0; }
+.treatment-overview dt { color: color-mix(in srgb, var(--doctor-paper) 60%, transparent); font-size: 12px; }
+.treatment-overview dd { color: var(--doctor-gold-light); font-family: "Libre Baskerville", Georgia, serif; font-size: 13px; margin: 0; text-align: right; }
+.treatment-content-band { padding: 88px 0 104px; }
+.treatment-content-grid { display: grid; grid-template-columns: minmax(0, 1fr) 350px; gap: 80px; align-items: start; }
+.treatment-article { max-width: 740px; }
+.treatment-lead { border-bottom: 1px solid var(--doctor-line); color: var(--doctor-ink); font-family: "Libre Baskerville", Georgia, serif; font-size: 20px; line-height: 1.75; margin: 0 0 52px; padding-bottom: 44px; }
+.treatment-copy-section { margin-bottom: 54px; }
+.treatment-copy-section h2, .treatment-related-band h2 { color: var(--doctor-navy); font-family: "Libre Baskerville", Georgia, serif; font-size: clamp(27px, 3vw, 36px); font-weight: 400; line-height: 1.25; margin: 0 0 20px; }
+.treatment-copy-section p { color: var(--doctor-ink); font-size: 16px; font-weight: 350; line-height: 1.85; margin: 0 0 16px; }
+.treatment-copy-section ul { display: grid; gap: 12px; list-style: none; margin: 26px 0 0; padding: 0; }
+.treatment-copy-section li { align-items: flex-start; color: var(--doctor-ink); display: flex; gap: 12px; line-height: 1.6; }
+.treatment-copy-section li svg { color: var(--doctor-gold); flex: 0 0 auto; margin-top: 3px; width: 18px; height: 18px; }
+.treatment-faq-section { border-top: 1px solid var(--doctor-line); padding-top: 52px; }
+.treatment-faq-list { border-top: 1px solid var(--doctor-line); }
+.treatment-faq-list details { border-bottom: 1px solid var(--doctor-line); }
+.treatment-faq-list summary { color: var(--doctor-navy); cursor: pointer; font-family: "Libre Baskerville", Georgia, serif; font-size: 16px; line-height: 1.5; padding: 20px 34px 20px 0; position: relative; }
+.treatment-faq-list summary::marker { color: var(--doctor-gold); }
+.treatment-faq-list details p { color: var(--doctor-ink); font-size: 15px; padding-bottom: 18px; }
+.treatment-references { background: var(--doctor-paper); border-left: 3px solid var(--doctor-gold); padding: 24px 26px; }
+.treatment-references h2 { color: var(--doctor-navy); font-family: "Libre Baskerville", Georgia, serif; font-size: 18px; margin: 0 0 14px; }
+.treatment-references ul { display: grid; gap: 10px; list-style: none; margin: 0 0 16px; padding: 0; }
+.treatment-references a { color: var(--doctor-steel); display: inline-flex; gap: 6px; font-size: 13px; line-height: 1.5; }
+.treatment-references a svg { flex: 0 0 auto; margin-top: 3px; width: 13px; height: 13px; }
+.treatment-references > p { color: var(--doctor-muted); font-size: 12px; line-height: 1.6; margin: 0; }
+.treatment-doctor-card { background: var(--doctor-paper); border-top: 3px solid var(--doctor-gold); position: sticky; top: 24px; }
+.treatment-doctor-card img { aspect-ratio: 1200 / 630; display: block; object-fit: cover; width: 100%; }
+.treatment-doctor-card > div { padding: 28px; }
+.treatment-doctor-card h2 { color: var(--doctor-navy); font-family: "Libre Baskerville", Georgia, serif; font-size: 22px; line-height: 1.35; margin: 0 0 12px; }
+.treatment-doctor-card p:not(.treatment-card-kicker) { color: var(--doctor-ink); font-size: 14px; line-height: 1.7; margin: 0 0 22px; }
+.treatment-related-band { background: var(--doctor-paper); padding: 82px 0 94px; }
+.treatment-related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 38px; }
+.treatment-related-card { border: 1px solid var(--doctor-line); color: var(--doctor-navy); min-height: 250px; padding: 28px; position: relative; text-decoration: none; transition: border-color .2s, transform .2s; }
+.treatment-related-card:hover { border-color: var(--doctor-gold); transform: translateY(-3px); }
+.treatment-related-card > span { color: var(--doctor-soft-gold); font-family: "Libre Baskerville", Georgia, serif; font-size: 36px; }
+.treatment-related-card h3 { font-family: "Libre Baskerville", Georgia, serif; font-size: 18px; margin: 20px 0 10px; }
+.treatment-related-card p { color: var(--doctor-muted); font-size: 13px; line-height: 1.65; margin: 0 0 24px; }
+.treatment-related-card > svg { color: var(--doctor-gold); bottom: 24px; height: 18px; position: absolute; right: 24px; width: 18px; }
+.treatment-footer { background: var(--doctor-navy); color: color-mix(in srgb, var(--doctor-paper) 65%, transparent); padding: 24px 0; }
+.treatment-footer .treatment-shell { display: flex; justify-content: space-between; gap: 20px; font-size: 12px; }
+
+@media (max-width: 900px) {
+  .treatment-hero-grid, .treatment-content-grid { grid-template-columns: 1fr; gap: 44px; }
+  .treatment-overview { max-width: 540px; }
+  .treatment-doctor-card { display: grid; grid-template-columns: minmax(220px, .9fr) 1fr; position: static; }
+  .treatment-doctor-card img { height: 100%; object-fit: cover; }
+  .treatment-related-grid { grid-template-columns: 1fr; }
+  .treatment-related-card { min-height: 190px; }
+}
+
+@media (max-width: 640px) {
+  .treatment-shell { width: min(100% - 36px, 1160px); }
+  .treatment-nav { padding: 12px 18px; }
+  .treatment-brand { font-size: 12px; }
+  .treatment-brand span { font-size: 8px; }
+  .treatment-nav-cta { min-width: 44px; padding-inline: 12px; font-size: 0; }
+  .treatment-nav-cta svg { width: 19px; height: 19px; }
+  .treatment-hero { padding: 28px 0 58px; }
+  .treatment-breadcrumb { margin-bottom: 40px; }
+  .treatment-hero h1 { font-size: 36px; }
+  .treatment-summary { font-size: 17px; }
+  .treatment-actions { align-items: stretch; flex-direction: column; }
+  .treatment-actions a { width: 100%; }
+  .treatment-content-band { padding: 58px 0 70px; }
+  .treatment-lead { font-size: 18px; margin-bottom: 40px; padding-bottom: 36px; }
+  .treatment-copy-section { margin-bottom: 42px; }
+  .treatment-doctor-card { display: block; }
+  .treatment-related-band { padding: 58px 0 68px; }
+  .treatment-footer .treatment-shell { flex-direction: column; gap: 6px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .treatment-page *, .treatment-card-link * { scroll-behavior: auto !important; transition: none !important; }
+}
