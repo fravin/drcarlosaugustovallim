@@ -5,3 +5,9 @@
 ## Pages
 
 - [Home](/): Apresentação do Dr. Carlos Vallim, especialidades (joelho, artroscopia, traumatologia esportiva), atuação com atletas de elite (NBB, Superliga, Tijuca Tênis Clube), locais de atendimento na Pavuna (RJ) e FAQ.
+- [Viscossuplementação do joelho](/tratamentos/viscossuplementacao-joelho): Informações sobre ácido hialurônico no joelho, indicações, aplicação, cuidados e limitações.
+- [Artroscopia do joelho](/tratamentos/artroscopia-joelho): Indicações, procedimento, recuperação e riscos da cirurgia artroscópica.
+- [Prótese de joelho](/tratamentos/protese-joelho): Quando a artroplastia pode ser considerada e como funciona a recuperação.
+- [Tratamento conservador do joelho](/tratamentos/tratamento-conservador-joelho): Opções não cirúrgicas para controle da dor e recuperação funcional.
+- [Infiltração no joelho](/tratamentos/infiltracao-joelho): Tipos de infiltração, finalidades, aplicação e cuidados.
+- [Reabilitação pós-operatória do joelho](/tratamentos/reabilitacao-pos-operatoria-joelho): Etapas e critérios para recuperação e retorno às atividades.

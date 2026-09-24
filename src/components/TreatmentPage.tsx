@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { ArrowLeft, ArrowRight, Check, ExternalLink, MessageCircle, ShieldCheck } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
-import { OG_IMAGE, treatments, type Treatment, WHATSAPP_URL } from "@/lib/treatments";
+import { OG_IMAGE, treatmentPath, treatments, type Treatment, WHATSAPP_URL } from "@/lib/treatments";
 import "@/treatment.css";
 
 export function HomeTreatmentGrid() {
@@ -18,7 +18,7 @@ export function HomeTreatmentGrid() {
           {treatments.map((treatment) => (
             <Link
               key={treatment.slug}
-              to={`/tratamentos/${treatment.slug}`}
+              to={treatmentPath(treatment.slug)}
               className="trat-card treatment-card-link reveal"
               aria-label={`Saiba mais sobre ${treatment.shortTitle}`}
             >
@@ -144,7 +144,7 @@ export function TreatmentPage({ treatment }: { treatment: Treatment }) {
             <h2>Tratamentos relacionados</h2>
             <div className="treatment-related-grid">
               {relatedTreatments.map((item) => (
-                <Link key={item.slug} to={`/tratamentos/${item.slug}`} className="treatment-related-card">
+                <Link key={item.slug} to={treatmentPath(item.slug)} className="treatment-related-card">
                   <span>{item.number}</span><h3>{item.shortTitle}</h3><p>{item.summary}</p><ArrowRight aria-hidden="true" />
                 </Link>
               ))}

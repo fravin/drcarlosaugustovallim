@@ -3,6 +3,7 @@ import { useEffect } from "react";
 
 import "../landing.css";
 import bodyHtml from "../landing-body.html?raw";
+import { HomeTreatmentGrid } from "../components/TreatmentPage";
 
 // Script inline original que ativa drawer mobile, FAB, tabs de clínica, FAQ e scroll reveal.
 const landingScript = `
@@ -55,6 +56,13 @@ const OG_IMAGE_ALT =
 const PAGE_TITLE = "Dr. Carlos Vallim — Ortopedista do Joelho | RJ";
 const PAGE_DESC =
   "Ortopedista e traumatologista com 35+ anos de experiência. Especialista em cirurgia do joelho e artroscopia. Atendimento na Pavuna, Rio de Janeiro.";
+
+const TREATMENT_SECTION_START = '<section class=trat id=tratamentos>';
+const FAQ_SECTION_START = '<section class=faq>';
+const treatmentStart = bodyHtml.indexOf(TREATMENT_SECTION_START);
+const faqStart = bodyHtml.indexOf(FAQ_SECTION_START, treatmentStart);
+const bodyBeforeTreatments = treatmentStart >= 0 ? bodyHtml.slice(0, treatmentStart) : bodyHtml;
+const bodyAfterTreatments = faqStart >= 0 ? bodyHtml.slice(faqStart) : "";
 
 const physicianJsonLd = {
   "@context": "https://schema.org",
@@ -167,9 +175,10 @@ function Index() {
   }, []);
 
   return (
-    <div
-      dangerouslySetInnerHTML={{ __html: bodyHtml }}
-      suppressHydrationWarning
-    />
+    <>
+      <div dangerouslySetInnerHTML={{ __html: bodyBeforeTreatments }} suppressHydrationWarning />
+      {treatmentStart >= 0 && faqStart >= 0 ? <HomeTreatmentGrid /> : null}
+      <div dangerouslySetInnerHTML={{ __html: bodyAfterTreatments }} suppressHydrationWarning />
+    </>
   );
 }

@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
+import { treatments } from "@/lib/treatments";
 
 const BASE_URL = "https://drcarlosaugustovallim.lovable.app";
 
@@ -14,7 +15,14 @@ export const Route = createFileRoute("/sitemap.xml")({
   server: {
     handlers: {
       GET: async () => {
-        const entries: SitemapEntry[] = [{ path: "/", changefreq: "monthly", priority: "1.0" }];
+        const entries: SitemapEntry[] = [
+          { path: "/", changefreq: "monthly", priority: "1.0" },
+          ...treatments.map((treatment) => ({
+            path: `/tratamentos/${treatment.slug}`,
+            changefreq: "monthly" as const,
+            priority: treatment.slug === "viscossuplementacao-joelho" ? "0.9" : "0.8",
+          })),
+        ];
 
         const urls = entries.map((e) =>
           [

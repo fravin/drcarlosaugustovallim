@@ -336,3 +336,30 @@ export const treatments: Treatment[] = [
 ];
 
 export const getTreatment = (slug: string) => treatments.find((item) => item.slug === slug);
+
+export type TreatmentPath =
+  | "/tratamentos/viscossuplementacao-joelho"
+  | "/tratamentos/artroscopia-joelho"
+  | "/tratamentos/protese-joelho"
+  | "/tratamentos/tratamento-conservador-joelho"
+  | "/tratamentos/infiltracao-joelho"
+  | "/tratamentos/reabilitacao-pos-operatoria-joelho";
+
+export function treatmentPath(slug: string): TreatmentPath {
+  switch (slug) {
+    case "viscossuplementacao-joelho":
+      return "/tratamentos/viscossuplementacao-joelho";
+    case "artroscopia-joelho":
+      return "/tratamentos/artroscopia-joelho";
+    case "protese-joelho":
+      return "/tratamentos/protese-joelho";
+    case "tratamento-conservador-joelho":
+      return "/tratamentos/tratamento-conservador-joelho";
+    case "infiltracao-joelho":
+      return "/tratamentos/infiltracao-joelho";
+    case "reabilitacao-pos-operatoria-joelho":
+      return "/tratamentos/reabilitacao-pos-operatoria-joelho";
+    default:
+      return "/tratamentos/viscossuplementacao-joelho";
+  }
+}
