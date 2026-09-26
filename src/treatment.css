@@ -81,7 +81,14 @@
 .treatment-related-card p { color: var(--doctor-muted); font-size: 13px; line-height: 1.65; margin: 0 0 24px; }
 .treatment-related-card > svg { color: var(--doctor-gold); bottom: 24px; height: 18px; position: absolute; right: 24px; width: 18px; }
 .treatment-footer { background: var(--doctor-navy); color: color-mix(in srgb, var(--doctor-paper) 65%, transparent); padding: 24px 0; }
-.treatment-footer .treatment-shell { display: flex; justify-content: space-between; gap: 20px; font-size: 12px; }
+.treatment-footer .treatment-shell { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px; font-size: 12px; }
+.nexum-credit { display: inline-flex; align-items: center; flex-wrap: wrap; gap: 8px; width: fit-content; color: var(--doctor-gold-light); font-family: "Outfit", sans-serif; font-size: 12px; line-height: 1.35; text-decoration: none; }
+.nexum-credit span { color: color-mix(in srgb, var(--doctor-paper) 72%, transparent); }
+.nexum-credit img { width: 35px; height: 41px; object-fit: contain; flex: none; }
+.nexum-credit strong { color: var(--doctor-paper); font-size: 13px; font-weight: 500; }
+.nexum-credit:hover strong, .nexum-credit:focus-visible strong { color: var(--doctor-gold-light); text-decoration: underline; }
+.nexum-credit:focus-visible { outline: 2px solid var(--doctor-gold-light); outline-offset: 4px; }
+.footer-nexum .nexum-credit { text-decoration: none; }
 
 @media (max-width: 900px) {
   .treatment-hero-grid, .treatment-content-grid { grid-template-columns: 1fr; gap: 44px; }
