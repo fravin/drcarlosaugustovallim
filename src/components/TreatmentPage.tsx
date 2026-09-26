@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { ArrowLeft, ArrowRight, Check, ExternalLink, MessageCircle, ShieldCheck } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
-import { OG_IMAGE, treatmentPath, treatments, type Treatment, WHATSAPP_URL } from "@/lib/treatments";
+import { treatmentPath, treatments, type Treatment, WHATSAPP_URL } from "@/lib/treatments";
 import "@/treatment.css";
 
 export function HomeTreatmentGrid() {
@@ -125,7 +125,7 @@ export function TreatmentPage({ treatment }: { treatment: Treatment }) {
             </article>
 
             <aside className="treatment-doctor-card">
-              <img src={OG_IMAGE} alt="Dr. Carlos Augusto Vallim Rosa, ortopedista no Rio de Janeiro" />
+              <img src="/og-dr-carlos-vallim.jpg" alt="Dr. Carlos Augusto Vallim Rosa, ortopedista no Rio de Janeiro" />
               <div>
                 <p className="treatment-card-kicker">Avaliação ortopédica</p>
                 <h2>Dr. Carlos Augusto Vallim Rosa</h2>
