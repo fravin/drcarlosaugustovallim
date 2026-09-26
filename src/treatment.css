@@ -23,13 +23,13 @@
 .treatment-page { background: var(--doctor-cream); color: var(--doctor-navy); min-height: 100vh; font-family: "Outfit", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
 .treatment-page * { box-sizing: border-box; }
 .treatment-shell { width: min(1160px, calc(100% - 48px)); margin-inline: auto; }
-.treatment-nav { min-height: 74px; background: var(--doctor-navy); border-bottom: 1px solid color-mix(in srgb, var(--doctor-gold) 25%, transparent); display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 12px max(24px, calc((100vw - 1160px) / 2)); }
+.treatment-nav { min-height: 74px; background: var(--doctor-navy); border-bottom: 1px solid color-mix(in srgb, var(--doctor-gold) 25%, transparent); display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 12px max(24px, calc((100vw - 1160px) / 2)); position: relative; inset: auto; backdrop-filter: none; }
 .treatment-brand { color: var(--doctor-gold-light); font-family: "Libre Baskerville", Georgia, serif; font-size: 14px; line-height: 1.4; text-decoration: none; }
 .treatment-brand span { color: color-mix(in srgb, var(--doctor-paper) 64%, transparent); display: block; font-family: "Outfit", sans-serif; font-size: 9px; letter-spacing: .18em; text-transform: uppercase; }
 .treatment-nav-cta, .treatment-primary-button { background: var(--doctor-gold); color: var(--doctor-navy); border: 0; border-radius: 2px; min-height: 44px; font-weight: 650; box-shadow: none; }
 .treatment-nav-cta:hover, .treatment-primary-button:hover { background: var(--doctor-gold-light); color: var(--doctor-navy); }
 .treatment-hero { background: var(--doctor-navy); color: var(--doctor-paper); padding: 38px 0 76px; }
-.treatment-breadcrumb { display: flex; flex-wrap: wrap; gap: 9px; color: color-mix(in srgb, var(--doctor-paper) 62%, transparent); font-size: 12px; margin-bottom: 56px; }
+.treatment-breadcrumb { display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 9px; color: color-mix(in srgb, var(--doctor-paper) 62%, transparent); font-size: 12px; margin: 0 0 56px; padding: 0; position: static; inset: auto; background: none; border: 0; backdrop-filter: none; }
 .treatment-breadcrumb a { color: var(--doctor-gold-light); text-decoration: none; }
 .treatment-hero-grid { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(300px, .72fr); gap: 84px; align-items: end; }
 .treatment-eyebrow, .treatment-card-kicker { color: var(--doctor-gold); font-size: 11px; font-weight: 650; letter-spacing: .2em; margin: 0 0 16px; text-transform: uppercase; }
