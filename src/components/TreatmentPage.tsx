@@ -3,6 +3,7 @@ import { ArrowLeft, ArrowRight, Check, ExternalLink, MessageCircle, ShieldCheck 
 
 import { Button } from "@/components/ui/button";
 import { treatmentPath, treatments, type Treatment, WHATSAPP_URL } from "@/lib/treatments";
+import nexumLogo from "@/assets/nexum-logo-footer.png.asset.json";
 import "@/treatment.css";
 
 export function HomeTreatmentGrid() {
@@ -154,7 +155,15 @@ export function TreatmentPage({ treatment }: { treatment: Treatment }) {
       </main>
 
       <footer className="treatment-footer">
-        <div className="treatment-shell"><span>© 2026 Dr. Carlos Augusto Vallim Rosa</span><span>CRM-RJ 47514-1</span></div>
+        <div className="treatment-shell">
+          <span>© 2026 Dr. Carlos Augusto Vallim Rosa</span>
+          <span>CRM-RJ 47514-1</span>
+          <a className="nexum-credit" href="https://www.nexumtec.com.br/" target="_blank" rel="noopener noreferrer" aria-label="Desenvolvido por Nexum Tecnologia — visitar o site">
+            <span>Desenvolvido por</span>
+            <img src={nexumLogo.url} alt="" width="35" height="41" loading="lazy" />
+            <strong>Nexum Tecnologia</strong>
+          </a>
+        </div>
       </footer>
     </div>
   );

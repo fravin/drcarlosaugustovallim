@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import "../landing.css";
 import bodyHtml from "../landing-body.html?raw";
 import { HomeTreatmentGrid } from "../components/TreatmentPage";
+import nexumLogo from "../assets/nexum-logo-footer.png.asset.json";
 
 // Script inline original que ativa drawer mobile, FAB, tabs de clínica, FAQ e scroll reveal.
 const landingScript = `
@@ -62,7 +63,12 @@ const FAQ_SECTION_START = '<section class=faq>';
 const treatmentStart = bodyHtml.indexOf(TREATMENT_SECTION_START);
 const faqStart = bodyHtml.indexOf(FAQ_SECTION_START, treatmentStart);
 const bodyBeforeTreatments = treatmentStart >= 0 ? bodyHtml.slice(0, treatmentStart) : bodyHtml;
-const bodyAfterTreatments = faqStart >= 0 ? bodyHtml.slice(faqStart) : "";
+const bodyAfterTreatments = faqStart >= 0
+  ? bodyHtml.slice(faqStart).replace(
+      '<div class=footer-nexum>Presença digital por <a href=https://www.nexumtec.com.br target=_blank>Nexum</a></div>',
+      `<div class=footer-nexum><a class=nexum-credit href="https://www.nexumtec.com.br/" target="_blank" rel="noopener noreferrer" aria-label="Desenvolvido por Nexum Tecnologia — visitar o site"><span>Desenvolvido por</span><img src="${nexumLogo.url}" alt="" width="35" height="41" loading="lazy"><strong>Nexum Tecnologia</strong></a></div>`,
+    )
+  : "";
 
 const physicianJsonLd = {
   "@context": "https://schema.org",
