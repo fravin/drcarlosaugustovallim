@@ -8,3 +8,5 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Keep treatment copy and route paths in `src/lib/treatments.ts`, with individual treatment routes using the shared `TreatmentPage`; this keeps medical content, internal links, and page metadata consistent.
